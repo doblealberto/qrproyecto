@@ -1,0 +1,20 @@
+<div class="col-sm-12 col-md-8 offset-md-2 mt-5 p-0 post-container">
+    <div class="media pt-3 pl-3 pb-1">
+
+        <div class="media-body">
+          
+        </div>
+    </div>
+
+    <img style="width: 100%;" src="{{ post.photo.url }}" alt="{{ post.nombre }}">
+
+    <p class="mt-1 ml-2" >
+        <a href="" style="color: #000; font-size: 20px;">
+           
+        </a> 
+    </p>
+    <p class="ml-2 mt-0 mb-2">
+        <b>{{ post.nombre }}</b> - 
+        <button><a href="{% url 'posts:qr' post.pk %}">Ver QR</a></button>
+        <button><a href="">Ver Descripcion</a></button>
+</div>

@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block head_content %}
+<title>Agregar mausoleo</title>
+{% endblock %}
+
+{% block container %}
+
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-6 pt-3 pb-3" id="profile-box">
+                <h4 class="mb-4">Agregar nuevo mausoleo</h4>
+
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    
+
+                    {# Website field #}
+                    <div class="form-group">
+                        <input
+                            type="text"
+                            name="nombre"
+                            placeholder="Nombre"
+                        >
+                        <div class="invalid-feedback">
+                            {% for error in form.title.errors %}{{ error }}{% endfor %}
+                        </div>
+                    </div>
+                    {# Website field #}
+                    <div class="form-group">
+                        <input
+                            type="text"
+                            name="descripcion"
+                            placeholder="Descripcion"
+                        >
+                        <div class="invalid-feedback">
+                            {% for error in form.title.errors %}{{ error }}{% endfor %}
+                        </div>
+                    </div>
+
+                    {# Photo field #}
+                    <div class="form-group">
+                        <label>Elige la foto:</label>
+                        <input
+                            class="form-control {% if form.photo.errors %}is-invalid{% endif %}"
+                            type="file"
+                            name="photo"
+                            placeholder="Foto"
+                        >
+                        <div class="invalid-feedback">
+                            {% for error in form.photo.errors %}{{ error }}{% endfor %}
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block mt-5">Agregar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

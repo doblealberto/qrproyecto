@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    </html>
+<script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
+
+</head>
+<body>
+
+
+<div id="qrcode"></div>
+    <script>
+        const full_url = "{{request.build_absolute_uri}}";
+        console.log(full_url)
+        let splice_url = full_url.split('/').splice(2,2);
+        let new_url = splice_url.join('/')
+        console.log(splice_url)
+    var url= `${new_url}/{{maus.pk}}`;
+        const qrcode = new QRCode(document.getElementById('qrcode'), {
+            text: url,
+            width: 128,
+            height: 128,
+            colorDark : '#000',
+            colorLight : '#fff',
+            correctLevel : QRCode.CorrectLevel.H
+          });
+        </script>        
+</body>
+</html>
+
